@@ -1,6 +1,7 @@
 import React, { Component } from "react"
-import Data from "../files/charData"
 import { Link, Switch, Route } from "react-router-dom"
+import Data from "../files/charData"
+import Profile from "./profile"
 
 class Characters extends Component {
     constructor() {
@@ -27,8 +28,8 @@ class Characters extends Component {
                 {
                     post.map((char) => {
                         return (
-                            <li key={char.id}>
-                                <Link to={`/characters/profile/${char.id}`}>
+                            <li key={char.name}>
+                                <Link to={`/characters/profile/${char.name}`}>
                                     {char.name}
                                 </Link>
                             </li>
@@ -48,6 +49,8 @@ class Characters extends Component {
                 
                 <Switch>
                     <Route exact path = "/characters" render = {this.renderLinks}/>
+                    <Route path = "/characters/profile/:name" component ={Profile}/>
+
                 </Switch>
             </div>
         )

@@ -8,7 +8,7 @@ const data= [
 
 const getAll = () => data;
 
-const getOne = id => data.find(char => char.id === id)
+const getOne = name => data.find(char => char.name === name)
 
 export default {
     getAll,
